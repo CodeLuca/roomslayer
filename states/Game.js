@@ -10,7 +10,7 @@ var player, cursors, map, layer, blocks, bg, text, walls, win, enemy, fires;
 var wallsArray = [];
 var enemies = false;
 var speed = 0.5; 
-var level = 2;
+var level = 1;
 
 BasicGame.Game.prototype = {
 
@@ -97,7 +97,7 @@ BasicGame.Game.prototype = {
         enemies = true;
     },
     restart: function(){
-        level = 5;
+        level = 1;
         this.state.start('MainMenu');
     },
     fireball: function(){
@@ -109,7 +109,7 @@ BasicGame.Game.prototype = {
         
         var steveSprite = this.add.sprite(640, x, 'fireball', 0, fires);
         this.physics.arcade.enable(steveSprite);
-        steveSprite.body.velocity.x = -100;
+        steveSprite.body.velocity.x = -100 - (level*5);
     }
 
 }
