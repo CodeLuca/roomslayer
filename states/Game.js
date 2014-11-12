@@ -9,7 +9,7 @@ BasicGame.Game = function (game) {
 var player, cursors, map, layer, blocks, bg, text, walls, win, enemy, fires;
 var wallsArray = [];
 var enemies = false;
-var speed = 0.5;
+var speed = 0.5; 
 var level = 2;
 
 BasicGame.Game.prototype = {
