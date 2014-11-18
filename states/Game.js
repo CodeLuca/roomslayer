@@ -42,11 +42,22 @@ BasicGame.Game.prototype = {
         this.physics.arcade.enable(walls);
         this.physics.arcade.enable(blocks);
         this.physics.arcade.enable(win);
+        player.inputEnabled = true;
+        player.input.enableDrag(true);
         this.timer = this.time.events.loop(1000, this.fireball, this);
         cursors = this.input.keyboard.createCursorKeys();
     },
 
     update: function(){
+        if (this.input.activePointer.isDown) {
+        //  400 is the speed it will move towards the mouse
+        this.physics.arcade.moveToPointer(player, 120);
+
+        //  if it's overlapping the mouse, don't move any more
+        // if (Phaser.Rectangle.contains(phaser.body, game.input.x, game.input.y)) {
+        //     sprite.body.velocity.setTo(0, 0);
+        //     }
+        }
         if(player.y < 29){player.y += 2;}
         if(player.y > 300){player.y -= 2;}
         // text.text = "x: " + player.x + " y: " + player.y;
